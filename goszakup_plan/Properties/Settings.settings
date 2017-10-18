@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="goszakup_plan.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="koeficent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,07</Value>
+    </Setting>
+    <Setting Name="god" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2017</Value>
+    </Setting>
+    <Setting Name="gody" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2016,2017,2018</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

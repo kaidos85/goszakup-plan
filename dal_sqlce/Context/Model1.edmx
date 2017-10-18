@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="egzModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\a.kassymkhanov\Documents\Visual Studio 2015\Projects\goszakup-tools\dal_sqlce\egz.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Orgs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_kz" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="name_ru" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="BIN" Type="integer" />
+          <Property Name="KodGU" Type="integer" />
+          <Property Name="Budget" Type="integer" />
+          <Property Name="Negu" Type="bit" />
+        </EntityType>
+        <EntityType Name="r_abp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" />
+          <Property Name="name_kz" Type="varchar" MaxLength="300" />
+          <Property Name="name_ru" Type="varchar" MaxLength="300" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="r_bud_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="2" />
+          <Property Name="name_kz" Type="varchar" MaxLength="50" />
+          <Property Name="name_ru" Type="varchar" MaxLength="50" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="r_enstru">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="37" />
+          <Property Name="edizm" Type="varchar" MaxLength="30" />
+          <Property Name="name_kz" Type="varchar" MaxLength="300" />
+          <Property Name="name_ru" Type="varchar" MaxLength="300" />
+          <Property Name="desc_kz" Type="varchar" MaxLength="500" />
+          <Property Name="desc_ru" Type="varchar" MaxLength="500" />
+          <Property Name="grs" Type="varchar" MaxLength="1" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+          <Property Name="ref_mkei" Type="decimal" Precision="53" Scale="0" />
+          <Property Name="ref_type" Type="decimal" Precision="53" Scale="0" />
+        </EntityType>
+        <EntityType Name="r_fsource">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" />
+          <Property Name="name_kz" Type="varchar" MaxLength="300" />
+          <Property Name="name_ru" Type="varchar" MaxLength="300" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="r_months">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="integer" Nullable="false" />
+          <Property Name="name_kz" Type="varchar" MaxLength="40" />
+          <Property Name="name_ru" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="r_point_types">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" />
+          <Property Name="CODE" Type="varchar" MaxLength="2" />
+          <Property Name="NAME_KZ" Type="varchar" MaxLength="50" />
+          <Property Name="NAME_RU" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="r_prg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" />
+          <Property Name="name_kz" Type="varchar" MaxLength="500" />
+          <Property Name="name_ru" Type="varchar" MaxLength="500" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+          <Property Name="abp" Type="integer" />
+        </EntityType>
+        <EntityType Name="r_specific">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" />
+          <Property Name="name_kz" Type="varchar" MaxLength="300" />
+          <Property Name="name_ru" Type="varchar" MaxLength="300" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="r_sprg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" />
+          <Property Name="name_kz" Type="varchar" MaxLength="500" />
+          <Property Name="name_ru" Type="varchar" MaxLength="500" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+          <Property Name="abp_prg" Type="integer" />
+        </EntityType>
+        <EntityType Name="r_subj_type">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="name_kz" Type="varchar" MaxLength="30" />
+          <Property Name="name_ru" Type="varchar" MaxLength="30" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="r_trade_method">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="integer" Nullable="false" />
+          <Property Name="name_kz" Type="varchar" MaxLength="100" />
+          <Property Name="name_ru" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="r_trade_method_just">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="2" />
+          <Property Name="name_kz" Type="varchar" MaxLength="600" />
+          <Property Name="name_ru" Type="varchar" MaxLength="600" />
+          <Property Name="tm_code" Type="varchar" MaxLength="2" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ref_kato">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="integer" Nullable="false" />
+          <Property Name="name_kz" Type="varchar" MaxLength="50" />
+          <Property Name="name_ru" Type="varchar" MaxLength="50" />
+          <Property Name="full_name_kz" Type="varchar" MaxLength="120" />
+          <Property Name="full_name_ru" Type="varchar" MaxLength="120" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="edate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="abp" Type="integer" />
+          <Property Name="stru" Type="integer" />
+          <Property Name="monthId" Type="integer" />
+          <Property Name="Year" Type="integer" Nullable="false" />
+          <Property Name="Deliver_kz" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Deliver_ru" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Description_kz" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Description_ru" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DisablePerson" Type="integer" />
+          <Property Name="SubjectTypeCode" Type="varchar" MaxLength="5" />
+          <Property Name="ExtraDescription_kz" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ExtraDescription_ru" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FinSource" Type="integer" />
+          <Property Name="mkeiId" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Summ" Type="decimal" Precision="53" Scale="0" />
+          <Property Name="YearSum1" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="YearSum2" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="YearSum3" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Prepayment" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="kato" Type="integer" Nullable="false" />
+          <Property Name="supplyDateKz" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="supplyDateRu" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TradeMethod" Type="integer" />
+          <Property Name="tradeMethodJust" Type="integer" />
+          <Property Name="Program" Type="integer" />
+          <Property Name="SubProgram" Type="integer" />
+          <Property Name="Specific" Type="integer" />
+          <Property Name="pointTypeCode" Type="integer" />
+        </EntityType>
+        <Association Name="FK_Orgs_0_0">
+          <End Role="r_bud_type" Type="Self.r_bud_type" Multiplicity="0..1" />
+          <End Role="Orgs" Type="Self.Orgs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_bud_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orgs">
+              <PropertyRef Name="Budget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_r_prg_0_0">
+          <End Role="r_abp" Type="Self.r_abp" Multiplicity="0..1" />
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_abp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="r_prg">
+              <PropertyRef Name="abp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_r_sprg_0_0">
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="0..1" />
+          <End Role="r_sprg" Type="Self.r_sprg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_prg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="r_sprg">
+              <PropertyRef Name="abp_prg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_0_0">
+          <End Role="r_point_types" Type="Self.r_point_types" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_point_types">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="pointTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_1_0">
+          <End Role="r_specific" Type="Self.r_specific" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_specific">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="Specific" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_10_0">
+          <End Role="r_abp" Type="Self.r_abp" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_abp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="abp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_2_0">
+          <End Role="r_sprg" Type="Self.r_sprg" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_sprg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="SubProgram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_3_0">
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_prg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_4_0">
+          <End Role="r_trade_method_just" Type="Self.r_trade_method_just" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_trade_method_just">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="tradeMethodJust" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_5_0">
+          <End Role="r_trade_method" Type="Self.r_trade_method" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_trade_method">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="TradeMethod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_6_0">
+          <End Role="r_fsource" Type="Self.r_fsource" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_fsource">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="FinSource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_7_0">
+          <End Role="r_subj_type" Type="Self.r_subj_type" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_subj_type">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="SubjectTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_8_0">
+          <End Role="r_months" Type="Self.r_months" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_months">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="monthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_9_0">
+          <End Role="r_enstru" Type="Self.r_enstru" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_enstru">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="stru" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="egzModelStoreContainer">
+          <EntitySet Name="Orgs" EntityType="Self.Orgs" store:Type="Tables" />
+          <EntitySet Name="r_abp" EntityType="Self.r_abp" store:Type="Tables" />
+          <EntitySet Name="r_bud_type" EntityType="Self.r_bud_type" store:Type="Tables" />
+          <EntitySet Name="r_enstru" EntityType="Self.r_enstru" store:Type="Tables" />
+          <EntitySet Name="r_fsource" EntityType="Self.r_fsource" store:Type="Tables" />
+          <EntitySet Name="r_months" EntityType="Self.r_months" store:Type="Tables" />
+          <EntitySet Name="r_point_types" EntityType="Self.r_point_types" store:Type="Tables" />
+          <EntitySet Name="r_prg" EntityType="Self.r_prg" store:Type="Tables" />
+          <EntitySet Name="r_specific" EntityType="Self.r_specific" store:Type="Tables" />
+          <EntitySet Name="r_sprg" EntityType="Self.r_sprg" store:Type="Tables" />
+          <EntitySet Name="r_subj_type" EntityType="Self.r_subj_type" store:Type="Tables" />
+          <EntitySet Name="r_trade_method" EntityType="Self.r_trade_method" store:Type="Tables" />
+          <EntitySet Name="r_trade_method_just" EntityType="Self.r_trade_method_just" store:Type="Tables" />
+          <EntitySet Name="ref_kato" EntityType="Self.ref_kato" store:Type="Tables" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" store:Type="Tables" />
+          <AssociationSet Name="FK_Orgs_0_0" Association="Self.FK_Orgs_0_0">
+            <End Role="r_bud_type" EntitySet="r_bud_type" />
+            <End Role="Orgs" EntitySet="Orgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_r_prg_0_0" Association="Self.FK_r_prg_0_0">
+            <End Role="r_abp" EntitySet="r_abp" />
+            <End Role="r_prg" EntitySet="r_prg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_r_sprg_0_0" Association="Self.FK_r_sprg_0_0">
+            <End Role="r_prg" EntitySet="r_prg" />
+            <End Role="r_sprg" EntitySet="r_sprg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_0_0" Association="Self.FK_UserData_0_0">
+            <End Role="r_point_types" EntitySet="r_point_types" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_1_0" Association="Self.FK_UserData_1_0">
+            <End Role="r_specific" EntitySet="r_specific" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_10_0" Association="Self.FK_UserData_10_0">
+            <End Role="r_abp" EntitySet="r_abp" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_2_0" Association="Self.FK_UserData_2_0">
+            <End Role="r_sprg" EntitySet="r_sprg" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_3_0" Association="Self.FK_UserData_3_0">
+            <End Role="r_prg" EntitySet="r_prg" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_4_0" Association="Self.FK_UserData_4_0">
+            <End Role="r_trade_method_just" EntitySet="r_trade_method_just" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_5_0" Association="Self.FK_UserData_5_0">
+            <End Role="r_trade_method" EntitySet="r_trade_method" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_6_0" Association="Self.FK_UserData_6_0">
+            <End Role="r_fsource" EntitySet="r_fsource" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_7_0" Association="Self.FK_UserData_7_0">
+            <End Role="r_subj_type" EntitySet="r_subj_type" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_8_0" Association="Self.FK_UserData_8_0">
+            <End Role="r_months" EntitySet="r_months" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_9_0" Association="Self.FK_UserData_9_0">
+            <End Role="r_enstru" EntitySet="r_enstru" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="egzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Orgs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_kz" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="name_ru" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="BIN" Type="Int64" />
+          <Property Name="KodGU" Type="Int64" />
+          <Property Name="Budget" Type="Int64" />
+          <NavigationProperty Name="r_bud_type" Relationship="Self.FK_Orgs_0_0" FromRole="Orgs" ToRole="r_bud_type" />
+          <Property Name="Negu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="r_abp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="r_prg" Relationship="Self.FK_r_prg_0_0" FromRole="r_abp" ToRole="r_prg" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_10_0" FromRole="r_abp" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_bud_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="Orgs" Relationship="Self.FK_Orgs_0_0" FromRole="r_bud_type" ToRole="Orgs" />
+        </EntityType>
+        <EntityType Name="r_enstru">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="37" FixedLength="false" Unicode="false" />
+          <Property Name="edizm" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="desc_kz" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="desc_ru" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="grs" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <Property Name="ref_mkei" Type="Decimal" Precision="53" Scale="0" />
+          <Property Name="ref_type" Type="Decimal" Precision="53" Scale="0" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_9_0" FromRole="r_enstru" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_fsource">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_6_0" FromRole="r_fsource" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_months">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int64" Nullable="false" />
+          <Property Name="name_kz" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_8_0" FromRole="r_months" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_point_types">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NAME_KZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME_RU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_0_0" FromRole="r_point_types" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_prg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <Property Name="abp" Type="Int64" />
+          <NavigationProperty Name="r_abp" Relationship="Self.FK_r_prg_0_0" FromRole="r_prg" ToRole="r_abp" />
+          <NavigationProperty Name="r_sprg" Relationship="Self.FK_r_sprg_0_0" FromRole="r_prg" ToRole="r_sprg" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_3_0" FromRole="r_prg" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_specific">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_1_0" FromRole="r_specific" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_sprg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <Property Name="abp_prg" Type="Int64" />
+          <NavigationProperty Name="r_prg" Relationship="Self.FK_r_sprg_0_0" FromRole="r_sprg" ToRole="r_prg" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_2_0" FromRole="r_sprg" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_subj_type">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name_kz" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_7_0" FromRole="r_subj_type" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_trade_method">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int64" Nullable="false" />
+          <Property Name="name_kz" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_5_0" FromRole="r_trade_method" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="r_trade_method_just">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="name_kz" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="tm_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK_UserData_4_0" FromRole="r_trade_method_just" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="ref_kato">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int64" Nullable="false" />
+          <Property Name="name_kz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name_ru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="full_name_kz" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="full_name_ru" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" />
+          <Property Name="edate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="abp" Type="Int64" />
+          <Property Name="stru" Type="Int64" />
+          <Property Name="monthId" Type="Int64" />
+          <Property Name="Year" Type="Int64" Nullable="false" />
+          <Property Name="Deliver_kz" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Deliver_ru" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Description_kz" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Description_ru" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DisablePerson" Type="Int64" />
+          <Property Name="SubjectTypeCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraDescription_kz" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraDescription_ru" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FinSource" Type="Int64" />
+          <Property Name="mkeiId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="YearSum1" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="YearSum2" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="YearSum3" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Prepayment" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="kato" Type="Int64" Nullable="false" />
+          <Property Name="supplyDateKz" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="supplyDateRu" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TradeMethod" Type="Int64" />
+          <Property Name="tradeMethodJust" Type="Int64" />
+          <Property Name="Program" Type="Int64" />
+          <Property Name="SubProgram" Type="Int64" />
+          <Property Name="Specific" Type="Int64" />
+          <Property Name="pointTypeCode" Type="Int64" />
+          <NavigationProperty Name="r_abp" Relationship="Self.FK_UserData_10_0" FromRole="UserData" ToRole="r_abp" />
+          <NavigationProperty Name="r_enstru" Relationship="Self.FK_UserData_9_0" FromRole="UserData" ToRole="r_enstru" />
+          <NavigationProperty Name="r_fsource" Relationship="Self.FK_UserData_6_0" FromRole="UserData" ToRole="r_fsource" />
+          <NavigationProperty Name="r_months" Relationship="Self.FK_UserData_8_0" FromRole="UserData" ToRole="r_months" />
+          <NavigationProperty Name="r_point_types" Relationship="Self.FK_UserData_0_0" FromRole="UserData" ToRole="r_point_types" />
+          <NavigationProperty Name="r_prg" Relationship="Self.FK_UserData_3_0" FromRole="UserData" ToRole="r_prg" />
+          <NavigationProperty Name="r_specific" Relationship="Self.FK_UserData_1_0" FromRole="UserData" ToRole="r_specific" />
+          <NavigationProperty Name="r_sprg" Relationship="Self.FK_UserData_2_0" FromRole="UserData" ToRole="r_sprg" />
+          <NavigationProperty Name="r_subj_type" Relationship="Self.FK_UserData_7_0" FromRole="UserData" ToRole="r_subj_type" />
+          <NavigationProperty Name="r_trade_method" Relationship="Self.FK_UserData_5_0" FromRole="UserData" ToRole="r_trade_method" />
+          <NavigationProperty Name="r_trade_method_just" Relationship="Self.FK_UserData_4_0" FromRole="UserData" ToRole="r_trade_method_just" />
+          <Property Name="Summ" Type="Decimal" Precision="53" Scale="0" />
+        </EntityType>
+        <Association Name="FK_Orgs_0_0">
+          <End Role="r_bud_type" Type="Self.r_bud_type" Multiplicity="0..1" />
+          <End Role="Orgs" Type="Self.Orgs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_bud_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orgs">
+              <PropertyRef Name="Budget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_r_prg_0_0">
+          <End Role="r_abp" Type="Self.r_abp" Multiplicity="0..1" />
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_abp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="r_prg">
+              <PropertyRef Name="abp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_10_0">
+          <End Role="r_abp" Type="Self.r_abp" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_abp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="abp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_9_0">
+          <End Role="r_enstru" Type="Self.r_enstru" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_enstru">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="stru" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_6_0">
+          <End Role="r_fsource" Type="Self.r_fsource" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_fsource">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="FinSource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_8_0">
+          <End Role="r_months" Type="Self.r_months" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_months">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="monthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_0_0">
+          <End Role="r_point_types" Type="Self.r_point_types" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_point_types">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="pointTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_r_sprg_0_0">
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="0..1" />
+          <End Role="r_sprg" Type="Self.r_sprg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_prg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="r_sprg">
+              <PropertyRef Name="abp_prg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_3_0">
+          <End Role="r_prg" Type="Self.r_prg" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_prg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_1_0">
+          <End Role="r_specific" Type="Self.r_specific" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_specific">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="Specific" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_2_0">
+          <End Role="r_sprg" Type="Self.r_sprg" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_sprg">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="SubProgram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_7_0">
+          <End Role="r_subj_type" Type="Self.r_subj_type" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_subj_type">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="SubjectTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_5_0">
+          <End Role="r_trade_method" Type="Self.r_trade_method" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_trade_method">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="TradeMethod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_4_0">
+          <End Role="r_trade_method_just" Type="Self.r_trade_method_just" Multiplicity="0..1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="r_trade_method_just">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="tradeMethodJust" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="egzEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Orgs" EntityType="Self.Orgs" />
+          <EntitySet Name="r_abp" EntityType="Self.r_abp" />
+          <EntitySet Name="r_bud_type" EntityType="Self.r_bud_type" />
+          <EntitySet Name="r_enstru" EntityType="Self.r_enstru" />
+          <EntitySet Name="r_fsource" EntityType="Self.r_fsource" />
+          <EntitySet Name="r_months" EntityType="Self.r_months" />
+          <EntitySet Name="r_point_types" EntityType="Self.r_point_types" />
+          <EntitySet Name="r_prg" EntityType="Self.r_prg" />
+          <EntitySet Name="r_specific" EntityType="Self.r_specific" />
+          <EntitySet Name="r_sprg" EntityType="Self.r_sprg" />
+          <EntitySet Name="r_subj_type" EntityType="Self.r_subj_type" />
+          <EntitySet Name="r_trade_method" EntityType="Self.r_trade_method" />
+          <EntitySet Name="r_trade_method_just" EntityType="Self.r_trade_method_just" />
+          <EntitySet Name="ref_kato" EntityType="Self.ref_kato" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" />
+          <AssociationSet Name="FK_Orgs_0_0" Association="Self.FK_Orgs_0_0">
+            <End Role="r_bud_type" EntitySet="r_bud_type" />
+            <End Role="Orgs" EntitySet="Orgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_r_prg_0_0" Association="Self.FK_r_prg_0_0">
+            <End Role="r_abp" EntitySet="r_abp" />
+            <End Role="r_prg" EntitySet="r_prg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_10_0" Association="Self.FK_UserData_10_0">
+            <End Role="r_abp" EntitySet="r_abp" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_9_0" Association="Self.FK_UserData_9_0">
+            <End Role="r_enstru" EntitySet="r_enstru" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_6_0" Association="Self.FK_UserData_6_0">
+            <End Role="r_fsource" EntitySet="r_fsource" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_8_0" Association="Self.FK_UserData_8_0">
+            <End Role="r_months" EntitySet="r_months" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_0_0" Association="Self.FK_UserData_0_0">
+            <End Role="r_point_types" EntitySet="r_point_types" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_r_sprg_0_0" Association="Self.FK_r_sprg_0_0">
+            <End Role="r_prg" EntitySet="r_prg" />
+            <End Role="r_sprg" EntitySet="r_sprg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_3_0" Association="Self.FK_UserData_3_0">
+            <End Role="r_prg" EntitySet="r_prg" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_1_0" Association="Self.FK_UserData_1_0">
+            <End Role="r_specific" EntitySet="r_specific" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_2_0" Association="Self.FK_UserData_2_0">
+            <End Role="r_sprg" EntitySet="r_sprg" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_7_0" Association="Self.FK_UserData_7_0">
+            <End Role="r_subj_type" EntitySet="r_subj_type" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_5_0" Association="Self.FK_UserData_5_0">
+            <End Role="r_trade_method" EntitySet="r_trade_method" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_4_0" Association="Self.FK_UserData_4_0">
+            <End Role="r_trade_method_just" EntitySet="r_trade_method_just" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="egzModelStoreContainer" CdmEntityContainer="egzEntities">
+          <EntitySetMapping Name="Orgs">
+            <EntityTypeMapping TypeName="egzModel.Orgs">
+              <MappingFragment StoreEntitySet="Orgs">
+                <ScalarProperty Name="Negu" ColumnName="Negu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="KodGU" ColumnName="KodGU" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_abp">
+            <EntityTypeMapping TypeName="egzModel.r_abp">
+              <MappingFragment StoreEntitySet="r_abp">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_bud_type">
+            <EntityTypeMapping TypeName="egzModel.r_bud_type">
+              <MappingFragment StoreEntitySet="r_bud_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_enstru">
+            <EntityTypeMapping TypeName="egzModel.r_enstru">
+              <MappingFragment StoreEntitySet="r_enstru">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="edizm" ColumnName="edizm" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="desc_kz" ColumnName="desc_kz" />
+                <ScalarProperty Name="desc_ru" ColumnName="desc_ru" />
+                <ScalarProperty Name="grs" ColumnName="grs" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+                <ScalarProperty Name="ref_mkei" ColumnName="ref_mkei" />
+                <ScalarProperty Name="ref_type" ColumnName="ref_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_fsource">
+            <EntityTypeMapping TypeName="egzModel.r_fsource">
+              <MappingFragment StoreEntitySet="r_fsource">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_months">
+            <EntityTypeMapping TypeName="egzModel.r_months">
+              <MappingFragment StoreEntitySet="r_months">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_point_types">
+            <EntityTypeMapping TypeName="egzModel.r_point_types">
+              <MappingFragment StoreEntitySet="r_point_types">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="NAME_KZ" ColumnName="NAME_KZ" />
+                <ScalarProperty Name="NAME_RU" ColumnName="NAME_RU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_prg">
+            <EntityTypeMapping TypeName="egzModel.r_prg">
+              <MappingFragment StoreEntitySet="r_prg">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+                <ScalarProperty Name="abp" ColumnName="abp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_specific">
+            <EntityTypeMapping TypeName="egzModel.r_specific">
+              <MappingFragment StoreEntitySet="r_specific">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_sprg">
+            <EntityTypeMapping TypeName="egzModel.r_sprg">
+              <MappingFragment StoreEntitySet="r_sprg">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+                <ScalarProperty Name="abp_prg" ColumnName="abp_prg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_subj_type">
+            <EntityTypeMapping TypeName="egzModel.r_subj_type">
+              <MappingFragment StoreEntitySet="r_subj_type">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_trade_method">
+            <EntityTypeMapping TypeName="egzModel.r_trade_method">
+              <MappingFragment StoreEntitySet="r_trade_method">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_trade_method_just">
+            <EntityTypeMapping TypeName="egzModel.r_trade_method_just">
+              <MappingFragment StoreEntitySet="r_trade_method_just">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="tm_code" ColumnName="tm_code" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ref_kato">
+            <EntityTypeMapping TypeName="egzModel.ref_kato">
+              <MappingFragment StoreEntitySet="ref_kato">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name_kz" ColumnName="name_kz" />
+                <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+                <ScalarProperty Name="full_name_kz" ColumnName="full_name_kz" />
+                <ScalarProperty Name="full_name_ru" ColumnName="full_name_ru" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="edate" ColumnName="edate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserData">
+            <EntityTypeMapping TypeName="egzModel.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="Summ" ColumnName="Summ" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="abp" ColumnName="abp" />
+                <ScalarProperty Name="stru" ColumnName="stru" />
+                <ScalarProperty Name="monthId" ColumnName="monthId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Deliver_kz" ColumnName="Deliver_kz" />
+                <ScalarProperty Name="Deliver_ru" ColumnName="Deliver_ru" />
+                <ScalarProperty Name="Description_kz" ColumnName="Description_kz" />
+                <ScalarProperty Name="Description_ru" ColumnName="Description_ru" />
+                <ScalarProperty Name="DisablePerson" ColumnName="DisablePerson" />
+                <ScalarProperty Name="SubjectTypeCode" ColumnName="SubjectTypeCode" />
+                <ScalarProperty Name="ExtraDescription_kz" ColumnName="ExtraDescription_kz" />
+                <ScalarProperty Name="ExtraDescription_ru" ColumnName="ExtraDescription_ru" />
+                <ScalarProperty Name="FinSource" ColumnName="FinSource" />
+                <ScalarProperty Name="mkeiId" ColumnName="mkeiId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="YearSum1" ColumnName="YearSum1" />
+                <ScalarProperty Name="YearSum2" ColumnName="YearSum2" />
+                <ScalarProperty Name="YearSum3" ColumnName="YearSum3" />
+                <ScalarProperty Name="Prepayment" ColumnName="Prepayment" />
+                <ScalarProperty Name="kato" ColumnName="kato" />
+                <ScalarProperty Name="supplyDateKz" ColumnName="supplyDateKz" />
+                <ScalarProperty Name="supplyDateRu" ColumnName="supplyDateRu" />
+                <ScalarProperty Name="TradeMethod" ColumnName="TradeMethod" />
+                <ScalarProperty Name="tradeMethodJust" ColumnName="tradeMethodJust" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="SubProgram" ColumnName="SubProgram" />
+                <ScalarProperty Name="Specific" ColumnName="Specific" />
+                <ScalarProperty Name="pointTypeCode" ColumnName="pointTypeCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
